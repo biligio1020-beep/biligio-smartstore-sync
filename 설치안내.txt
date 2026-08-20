@@ -1,0 +1,51 @@
+BILIGIO SmartStore sync starter v1
+
+이 구성은 사용 중인 한음악기 GitHub 동기화 구조를 빌리지오용으로 분리한 것입니다.
+
+1. 새 GitHub 저장소를 하나 생성
+   예: biligio-smartstore-sync
+
+2. 이 ZIP 내용 업로드
+   - package.json
+   - scripts/category-rules.js
+   - scripts/sync-products.js
+   - .github/workflows/sync-products.yml
+
+3. GitHub Secrets 등록
+   - NAVER_CLIENT_ID
+   - NAVER_CLIENT_SECRET
+   - BILIGIO_PROXY_KEY
+
+중요:
+BILIGIO_PROXY_KEY는 Cafe24:
+  /newhome/api/naver-relay.php
+안의 $PROXY_KEY와 동일해야 합니다.
+키 값은 ChatGPT에 보내지 말고 본인이 직접 두 곳에 입력하세요.
+
+4. 스마트스토어 주소
+   - 빌리지오 주소: https://smartstore.naver.com/bili_gio
+   - STORE_SLUG는 이미 'bili_gio'로 설정해두었습니다.
+   - 따라서 NAVER_STORE_SLUG Repository Variable은 따로 만들 필요 없습니다.
+
+5. Actions > Sync BILIGIO SmartStore products > Run workflow
+
+정상 성공 후 확인:
+https://biligio.com/newhome/data/products.js
+
+파일 안에:
+window.BILIGIO_PRODUCT_META = ...
+window.BILIGIO_PRODUCTS = [...]
+가 들어오면 성공입니다.
+
+그 뒤:
+PC https://biligio.com/newhome/
+모바일 https://biligio.com/newhome/mobile/
+양쪽에 같은 상품이 자동 표시됩니다.
+
+주의:
+현재 workflow의 relay 주소는 테스트 경로:
+https://biligio.com/newhome/api/naver-relay.php
+
+최종 오픈 시 /newhome/을 루트로 옮기면:
+https://biligio.com/api/naver-relay.php
+로 workflow도 수정해야 합니다.

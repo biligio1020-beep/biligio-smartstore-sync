@@ -1,0 +1,5 @@
+sync default slug: OK
+workflow hardcoded slug: OK
+no workflow vars slug: OK
+README updated: OK
+store URL path generation: OK
