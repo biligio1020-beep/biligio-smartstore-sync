@@ -31,5 +31,5 @@ jobs:
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
           BILIGIO_PROXY_KEY: ${{ secrets.BILIGIO_PROXY_KEY }}
           NAVER_STORE_SLUG: 'bili_gio'
-          CAFE24_NAVER_PROXY_URL: 'https://biligio.mycafe24.com/newhome/api/naver-relay.php'
+          CAFE24_NAVER_PROXY_URL: 'https://biligio.com/api/naver-relay.php'
         run: npm run sync
