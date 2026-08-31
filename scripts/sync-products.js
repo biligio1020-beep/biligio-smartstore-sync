@@ -5,7 +5,7 @@ import { classifyProduct } from './category-rules.js';
 
 const STORE_SLUG = process.env.NAVER_STORE_SLUG || 'bili_gio';
 const PROXY_URL = process.env.CAFE24_NAVER_PROXY_URL ||
-  'https://biligio.com/newhome/api/naver-relay.php';
+  'https://biligio.com/api/naver-relay.php';
 const OUTPUT = path.resolve('output/products.js');
 
 function must(name) {
